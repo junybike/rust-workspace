@@ -1,0 +1,18 @@
+To use a type that isn't in the prelude (std::io), 
+must bring a type into scope explicity with a 'use' statement
+
+Rust variables are immutable by default
+'read_line' returns a 'Result'. It is an enum for states ('Ok' and 'Err')
+Err usually an error comeing from underlying operating system
+variant: possible states.
+
+Crate: collection of Rust source code files
+Binary crate: where a project is being built
+Library crate: contains code that is intended to be used in other program. Cant be executed on its own
+
+Cargo only updates the files that is edited during the build 
+Cargo lock: prevents from using greater version of anything unless specifically specified
+'update' ignores cargo lock and figure out latest version that fit the specification in cargo toml
+ - look for versions greater than 0.8.5 and less than 0.9.0 since rand crate version is 0.8.
+ 
+To explore other functionality in the any crate, run 'cargo doc --open' and find its section
