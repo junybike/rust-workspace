@@ -1,0 +1,38 @@
+4.1
+Ownership: enables memory safety gurantees without garbage collector
+ - a set of rules that govern how Rust manages memory
+ - memory is managed through a system of ownership with a set of rules that compiler checks
+ - does not compile if any rule is violated
+ - no runtime effect 
+
+Rules:
+ - each value in Rust has an owner
+ - there can be only one owner at a time
+ - when owner goes out of scope, value will be dropped
+
+String literals: string value is hardcoded into our program
+ - immutable
+ - not all string value can be known when we write code.
+
+String: manages data allocated on the heap
+ - able to store an amount of text that is unknown to us at compile time 
+
+Memory and allocation for String
+ - memory must be requested from memory allocator at runtime (done by calling String::from)
+ - need a way to return this memory to allocator when we're done with our String 
+ (memory is automatically returned once the variable that owns it goes out of scope)
+
+When assigning a completely new value to existing variable, 
+Rust calls 'drop' and free original value's memory
+
+Integer types have a known size at compile time are stored entirely on the stack.
+ - no difference between deep and shallow copy
+
+Copy trait: variable that use it do not move but trivially copied.
+ - still valid after assignment to another variable
+ - no copy trait if a type or a any of its parts has drop trait
+
+Types that implement the copy trait
+ - all integer, boolean, all floating point, char, tuples (if only contains type that implement copy trait)
+
+4.2
