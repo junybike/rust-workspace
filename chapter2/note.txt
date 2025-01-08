@@ -16,3 +16,5 @@ Cargo lock: prevents from using greater version of anything unless specifically 
  - look for versions greater than 0.8.5 and less than 0.9.0 since rand crate version is 0.8.
  
 To explore other functionality in the any crate, run 'cargo doc --open' and find its section
+
+Rust supports shadowing. It lets us to reuse a variable 
