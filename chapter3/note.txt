@@ -1,0 +1,48 @@
+3.1
+Immutability: once a value is bound to a name, cannot change that value.
+
+Constant: values that are bound to a name and not allowed to change.
+ - Cannot use mut
+ - can be declared in any scope (global scope)
+ - may be set only to a constant expression (not the result of a value that could only be computed at runtime)
+
+Shadowing: able to perform transformation on immutable value. But relevent to creating a new variable
+ - can change the type of the value reusing the same name 
+
+3.2
+Rust is a statically typed language
+ - must know the types of all variables at compile time
+
+signed integer: i8, i16, i32...     Range: -(2^n-1) ~ 2^n-1 - 1
+unsigned integer: u8, u16, u32...   Range: 0 to 2^n - 1
+
+Number separator: 1000 = 1_000
+
+Integer overflow
+ - Compiling in debug mode: causes program to panic at runtime if it occurs
+ - Compiling in --release flag: performs two's complement wrapping. In u8, 256 -> 0, 257 -> 1, ...
+
+Floating points are represented according to IEEE-754 standard
+ - f32: single precision
+ - f64: double precision
+
+Char uses Unicode scalar value
+
+Tuple: grouping together a number of values with variety of types
+ - a single compound element
+
+Array: store same type elements. 
+ - fixed length 
+
+Accessing index that is not available:
+ - checks if the accessing index is within the array length
+ - panic if index is greater than or equal to the length
+ - happens during runtime
+ - prevents from accessing invalid memory by immediately exiting
+
+3.3
+
+Function bodies are made up of series of statements and optionally ending in an expression
+Rust is an expression based language
+ - statements: instruction that performs some action. do not return a value
+ - expression: evaluate to a resultant value
