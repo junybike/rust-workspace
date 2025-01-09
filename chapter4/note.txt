@@ -36,3 +36,17 @@ Types that implement the copy trait
  - all integer, boolean, all floating point, char, tuples (if only contains type that implement copy trait)
 
 4.2
+
+References: allow us to refer to some value without taking ownership of it
+Refernced value cannot be modified
+
+Mutable reference can change the value
+ - a mutable reference to a value cannot have other references to that value
+The restriction preventing multiple mut references to same data at same time prevents data race
+
+Data race
+ - two or more pointer access the same data at the same time
+ - at least one of pointers being used to write to data
+ - no mechanism being used to synchronize access to Data
+
+Rust compiler gurantees that references will never be dangling reference
