@@ -1,0 +1,17 @@
+6.1
+
+enum advantage
+ - each variant can have different types and amounts of associated data
+ - can put any kind of data inside an enum variant 
+
+enum supports impl block
+
+Rust does not have nulls but it has enum that can encode the concept of a value being present or absent
+
+6.2
+matches in Rust are exhaustive
+ - must exhaust every last possibility for code to be valid
+
+6.3
+if let: less typing, indentation, boilerplate code
+ - but lose the exhaustive checking that match enforces
