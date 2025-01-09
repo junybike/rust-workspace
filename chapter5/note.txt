@@ -1,0 +1,14 @@
+5.1
+fields: names and types of the pieces of data in struct
+
+unit-like struct: use when implementing a trait on some type 
+but don't have any data that we want to store in the type it self
+
+5.2
+
+5.3
+reason to use methods instead of functions: organization
+
+automatic referencing and dereferencing: Rust automatically adds in &, &mut, or *
+object.something(); 
+ - so object would match the signature of method
