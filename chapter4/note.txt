@@ -50,3 +50,10 @@ Data race
  - no mechanism being used to synchronize access to Data
 
 Rust compiler gurantees that references will never be dangling reference
+
+4.3
+
+slice: references a contiguous sequence of elements in a collection rather than a whole collection
+ - a kind of a reference. has no ownership.
+
+string slice: reference to a part of a String
