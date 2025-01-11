@@ -1,0 +1,6 @@
+8.2
+string literals and slices stored in program's binary
+"String" is growable, mutable, owned, UTF-8 encoded string type (provided by Rust's std lib)
+
+8.3
+Hashmap keys value must be all same type and its all values must have same type 
