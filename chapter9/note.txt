@@ -1,0 +1,31 @@
+9.1
+recoverable: may be solved by retrying the operation
+ - file not found error
+unrecoverable: bugs in program
+ - accessing a location beyond the end of an array
+
+panics: print a failure, message, unwind, clean up stack, and quits
+ - unwinding: walks back up the stack and cleans up data from each function it encounters
+ - has choice to abort immediately without cleaning up (cleaned up by OS)
+
+Setting RUST_BACKTRACE environment: to get backtrace of exactly what happened to cause the error
+ - backtrace: list of all functions that have been called to get this point
+To use it:
+RUST_BACKTRACE=1 cargo run 
+
+9.2
+Propagating the error: when function implementation calls something that might fail, instead of handling error within the function it self,
+return the error to the calling code and make decision on what to do
+
+?: error values that have ? operator goes through the 'from' function to convert values from one type into another.
+ - converts error type to error type defined in return type of the function
+
+? can be used only in functions whose return type is compatible with the value the ? is used on
+
+9.3
+Returning Result is a better choice when defining a function that might fail
+
+unwrap and expect methods are helpful when prototyping before deciding how to handle errors
+ - appropriate to call them when using logic that ensures the Result will have an Ok value
+
+Bad state: something that is unexpected (user entering wrong input format)
