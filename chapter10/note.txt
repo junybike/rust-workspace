@@ -1,0 +1,24 @@
+10.1
+Uses generics to create definitions for items like function signatures or structs
+Generic types do not make program run slower than it would with concrete types
+- performs Monomorphization of the code using generics at compile time
+
+Monomorphization: process of turning generic code into specific code by 
+filling in the concrete types that are used when compiled
+
+No runtime cost for generics since Rust compiles generic code into code that specifies the type in each instance
+
+10.2
+Trait: defines functionality a particular type has and can share with other types
+ - able to define shared behavior in abstract way
+
+Type's behavior consists of methods we can call on that type
+Different types share the same behavior if same methods can get called on all those types
+Trait definition: group method signatures together to define set of behaviors ncessary to accomplish some purpose
+
+trait on a type vs implementing regular methods
+ - After impl, put the trait name we want to implement.
+ - specify name of type we want to implement the trait for
+
+can implement trait on a type only if either the trait or type or both are local to our create
+cannot implement external traits on external types (example: Display trait on Vec<T>)
