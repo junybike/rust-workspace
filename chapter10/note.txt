@@ -22,3 +22,29 @@ trait on a type vs implementing regular methods
 
 can implement trait on a type only if either the trait or type or both are local to our create
 cannot implement external traits on external types (example: Display trait on Vec<T>)
+
+10.3
+Lifetime is to prevent dangling reference
+Rust knows if the code (pointer) is invalid with borrow checker
+ - borrow checker compares the lifetimes of variables
+
+Lifetime annotation describes the relationships of the lifetimes of multiple references to each other without affecting lifetimes
+Lifetime annotation syntax
+&i32        // reference
+&'a i32     // reference with an explicit lifetimes
+&'a mut i32 // mutable reference with explicit lifetime
+
+Lifetime elision: if theres ambiguity as to what lifetimes the references have after Rust applies the rules,
+compiler wont guess what lifetime of the remaining references should be.
+Must add lifetime annotations
+
+Lifetime on function or method parameters: input lifetimes
+lifetime on return values: output lifetimes
+
+First rule: applies to input lifetimes
+second and third rule: applies to output lifetimes
+If compiler gets to end of three rules and references still remain for which it cant figure out lifetimes, throw error.
+
+First rule: compiler assign lifetime parameter to each parameter that is a reference.
+Second rule: if exactly one lifetime parameter, lifetime is assigned to all output lifetime parameters
+Third rule: if multiple input parameters but one is &self or &mut self (method), then lifetime of self is assigned to all output lifetime parameters
