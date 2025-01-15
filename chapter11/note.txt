@@ -1,0 +1,43 @@
+11.1
+cargo test command: runs all tests in the project
+
+assert_eq! use operator ==
+assert_ne! use operator !=
+
+In Rust, expected and actual are left and right
+
+assert_ne! will pass if two values we give it are not equal and fail if they're equal
+
+11.2
+running multiple tests, by default, run in parallel using threads
+ - tests must not depend on each other or on any shared state (environment, directory)
+
+To not run test cases in parallel,
+cargo test -- --test-threads=1
+
+By default, Rust's test library captures anything printed to standard output.
+if we call println! in a test and test passes, we cannot see prinln! output in terminal
+
+To show prinln! anytime,
+cargo test -- --show-output
+
+11.3
+#[cfg(test)] on tests module tell Rust to compile and run the test code only 
+when doing 'cargo test' and not when 'cargo build'
+
+cfg: configuration. Tells Rust that following item should only be included.
+
+Rust allow us to test private functions
+
+Each integration file has its own section.
+Adding more files in tests directory will create more integration test sections
+
+To only run tests in tests/integration_test.rs file:
+cargo test --test integration_test
+
+If project only contains src/main.rs and no src/lib.rs, 
+cannot create integration tests in test directory 
+and bring functions defined in src/main.rs into scope with a use statement.
+
+Only lib crates expose functions that other crates can use.
+Binary crates are meant to be run on their own.
