@@ -10,19 +10,19 @@ fn main()
     // by passing the inner value of err (the string: not enough arguments)
     let args: Vec<String> = env::args().collect();
     let config = Config::build(&args).unwrap_or_else(|err| {
-        println!("Problem parsing arguments: {err}");
+        eprintln!("Problem parsing arguments: {err}");
         process::exit(1);
     });
     // dbg!(args); prints value inside args
 
-    println!("Searching for: {}", config.query);
-    println!("In file: {}", config.file_path);
+    // println!("Searching for: {}", config.query);
+    // println!("In file: {}", config.file_path);
 
     // Opens file and returns value of type std::io::Result<String> 
     // also checks whether run returns Err value. If so, calls process::exit(1) 
     if let Err(e) = minigrep::run(config)
     {
-        println!("Application error: {e}");
+        eprintln!("Application error: {e}");
         process::exit(1);
     }
 }

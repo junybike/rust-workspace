@@ -1,0 +1,2 @@
+cargo run > output.txt: tell shell to write contents of std output to output.txt instead of screen
+eprintln: writing error messages to std err instead of std output
