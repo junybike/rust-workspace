@@ -1,0 +1,50 @@
+14.1
+Cargo has two main profiles
+dev profile Cargo: when cargo build is ran
+release profile Cargo: when cargo build --release is ran
+
+Cargo has default settings for each of profiles that apply when we havent explicitly added any [profile.*]
+Adding [profile.*] section in Cargo.toml override any subset of default settings
+
+opt-level setting controls number of optimizations Rust will apply to the code 0 ~ 3
+More optimizations -> more compiling time.
+level 1 more optimizations
+
+14.2
+cargo doc --open
+Commonly used sections in documentation
+Panic: scenarios which the function could panic
+Error: describes what kind of errors might occur, what condition might cause those errors
+Safety: explains why function is unsafe
+
+running cargo test runs the code examples in documentation as tests
+
+//! adds documentation to item that contains the comments rather than to items following the comments
+
+/// Adds one to the number given.
+/// 
+/// # Examples
+/// ```
+/// let arg = 5;
+/// let answer = my_crate::add_one(arg);
+/// 
+/// assert_eq!(6, answer);
+/// ```
+
+//! # My Crate
+//! 
+//! `my_crate` is a collection of utilites to make performing certain
+//! calculations more convenient.
+/// Adds one to the number given
+
+token
+
+
+cargo yank: to deprecate versions from crates.io
+prevents new project from depending on that version while allowing all existing projects that depend on it to continue
+all projects with Cargo.lock will not break.
+any future Cargo.lock files generated will not use the yanked version
+
+to yank a version of a crate, in directory of published, run 'cargo yank'
+and specify which verson to yank
+cargo yank --vers 1.0.1

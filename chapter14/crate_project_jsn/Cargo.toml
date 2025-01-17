@@ -1,0 +1,8 @@
+[package]
+name = "cargo_project_jsn"
+version = "0.1.0"
+edition = "2021"
+description = "publish test on crate.io"
+license = "MIT"
+
+[dependencies]
