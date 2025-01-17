@@ -1,0 +1,19 @@
+13.1
+Closure: anonymous functions I can save in a variable or pass as arguments to other functions
+
+Functions: need type annotations since types are part of explicit interface exposed to users
+ - everyone agrees on what types of values a function uses and returns
+Closure: stored in variables and used without naming them and exposing them to users of our library
+ - no need to annotate types of parameters/return value
+
+FnOnce: applices closure that can be called once
+ - a closure that moves captured values out of its body
+FnMut: applies to closure that dont move captured values out of their body but may mutate the captured values.
+ - can call more than once
+Fn: applies to closures that dont move captured values out of their body and dont mutate captured values
+ - can be called more than once without mutating their environment
+
+13.2
+Methods that call next are consuming adapters.
+ - calling them uses up the iterator.
+Iterator adapters: methods define on Iterator trait that dont consume the iterator
