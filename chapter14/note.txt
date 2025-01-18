@@ -48,3 +48,7 @@ any future Cargo.lock files generated will not use the yanked version
 to yank a version of a crate, in directory of published, run 'cargo yank'
 and specify which verson to yank
 cargo yank --vers 1.0.1
+
+14.3
+To run a specific cargo, cargo run -p adder
+To test a specific cargo, cargo test -p add_one
