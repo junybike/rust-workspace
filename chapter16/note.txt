@@ -1,0 +1,29 @@
+16
+Concurrent programming
+ - different parts of a program execute independently
+Parallel programming
+ - different parts of a program execute at the same time
+
+16.2
+recv: blocks main thread and wait until it receives a data.
+try_recv: immediately returns Result<T,E>
+ - if value is returned, returns Ok value holding the message.
+ - Else, Err value.
+
+16.3
+Arc<T>: safe to use in concurrent situation (Rc<T> not allowed in concurrency)
+ - performance penalty exists
+
+16.4
+Send marker trait: ownership of values of type implementing Send can be transferred between threads
+Rc<T> cannot be Send. 
+ - clonning it and transferring ownership of the clone to another thread cause 
+ both thread to update reference count at same time (single threaded only)
+
+Sync marker trait: safe for type implementing Sync to be referenced from multiple threads
+ - any type T is Sync if &T (immutable reference to T) is Send (reference can be sent safely to another thread) 
+Rc<T> is also not Sync. (same reason that its not Send).
+RefCell<T> and the family of related Cell<T> are not Sync
+
+types are made up of Send and Sync traits are automatically Send and Sync.
+No need to implement those traits manually
