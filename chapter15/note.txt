@@ -1,0 +1,28 @@
+15
+Smart pointers allow data to have multiple owners by keeping track of number of owners
+ - if no owners remain, cleans up the data
+Smart pointers own the data they point to
+Examples: String, Vec<T>
+ - owns some memory and allow us to manipulate it
+
+15.1
+Box<T>: store data on heap
+ - no performance overhead.
+Used when
+ - useful in recursive
+
+cons list: data structure made up of nested pairs (1, (2, (3, nil)))
+
+15.2
+Deref coercion: converts reference to a type that implements the Deref trait into a reference to another type
+&String to &str (String implements Deref trait such that it returns &str)
+
+Deref coercion interacts with mutability
+Use: DerefMut to override * operator on mutable references
+
+&T to &U when T: Deref<Target=U>
+&mut T to &mut U when T: DerefMut<Target=U>
+&mut T to &U when T: Deref<Target=U>    (coerce a mutable ref to immutable ref. reverse is not possible)
+
+15.3
+Drop: customize what happens when value is about to go out of scope
