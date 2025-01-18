@@ -26,3 +26,36 @@ Use: DerefMut to override * operator on mutable references
 
 15.3
 Drop: customize what happens when value is about to go out of scope
+
+15.4
+Rc<T>: keep track of number of references to a value to determine whether or not the value is still in useful
+ - does not make deep copy 
+
+15.5
+Interior mutability: allows to mutate data even when there are immutable references to that data
+RefCell<T>: single ownership over the data it holds
+
+Box<T>: borrowing rules invariants are enforced at compile time
+ - breaking rule -> compile error
+RefCell<T>: enforced at runtime
+ - breaking rule -> panic and exit
+
+Rc<T> enables multiple owners of same data.
+Box<T> allows immutable or mutable borrows checked at compile time
+RefCell<T> allows mutable borrows checked at runtime. Can mutate value inside RefCell<T> even when it is immutable
+
+borrow method returns smart pointer type Ref<T>
+borrow_mut method returns smart pointer type RefMut<T>
+Can treat both as regular references since they implement Deref
+
+Multiple owners of mutable data by combining Rc<T> and RefCell<T>
+By having an Rc<T> that holds a RefCell<T>, can get a value that can have multiple owners and that you can mutate 
+
+15.6
+Weak reference
+ - doesnt express ownership relationship. Their count doesnt affect when Rc<T> instance is cleaned up\
+ - doesnt cause reference cyle. Any cycle involving some weak references will be broken once strong reference count of values involved is 0
+
+Weak case example
+Parent node dropped -> its child nodes should be dropped
+Child node dropped -> shouldnt drop parent node
