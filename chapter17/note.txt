@@ -1,0 +1,20 @@
+17.1
+Rust is object oriented.
+ - structs and enums have data and impl blocks provide methods on structs and enums
+Encapsulation: implementation details of an object arent accessible to code using that object
+ - only way to interact with an object is through its public API
+ - code using the object cannot directly reach into object's internal and change data or behavior directly
+ - able to change and refactor an object's interal without changing the code that uses the object
+
+Inheritance: object can inherit elements from another object's definition
+ - gains the parent object's data and behavior without having to define them again.
+Rust doesnt support Inheritance
+ - can be replaced with trait methods
+ - any type implementing Summary trait would have summarize method available 
+
+Polymorphism: To enable a child type to be used in same places as the parent type
+ - can substitute multiple objects for each other at runtime if they share certain characteristics
+
+17.3
+State pattern: no need to change the code of value holding the state or code that uses the value.
+ - only need to update code inside one of the state objects 
