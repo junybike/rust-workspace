@@ -1,0 +1,47 @@
+19.1
+Unsafe superpowers
+- dereference a raw pointer
+- call an unsafe function/method
+- access or modify mutable static variable
+- implement unsafe trait
+- access fields of union
+
+Raw pointer
+- can ignore borrowing rules by having both immutable and mutable pointers 
+or multiple mutable pointers to the same location
+- not guranteed to point to valid memory
+- allowed to be null
+- doesnt implement any automatic cleanup
+
+Can create mutable and immutable pointer to same location and change data through mutable pointer
+
+Unsafe function/method: only allowed to get called in unsafe scope
+Wrappig unsafe code in a safe function is a common abstraction
+
+FFI (foreign function interface): enables a different programming language to call those functions
+- must be called in unsafe scope
+
+Static variables: only store references with static lifetime
+- rust can figure out the lifetime. no need to annotate it explicitly
+- accessing immutable static variable is safe
+- have fixed address in memory
+- can be mutable
+- accessing and modifying mutable static variable is unsafe
+Constants: allowed to duplicate data whenever they're used
+
+Unsafe trait: when at least one of its methods has some invariants that compiler can't verify
+unsafe impl: promises that we will uphold the invariants that compiler cant verify
+
+19.2
+Associated types: connect a type placeholder with a trait 
+such that trait method definitions can use these placeholder types in their signature
+
+Implementor of a trait will specify concrete type to be used instead of placeholder type for particular implementation
+- able to define trait that uses some types without knowing exactly what those types are until trait is implemented
+
+Cannot create own operators or overload arbitrary operators
+Can overload operation and corresponding traits listed in std::ops by implementing traits associated with operator
+
+Orphan rule: only allowed to implement a trait on a type if either trait or type are local to our crate
+- can get around with newtype pattern (new type in a tuple struct)
+- tuple contains one field and be a thin wrapper around the type we want to implement a trait for
