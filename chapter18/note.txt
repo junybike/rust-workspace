@@ -1,0 +1,11 @@
+18.1
+While let conditional loop: allow loop to run as long as pattern continues to match
+
+18.2
+refutable: can fail to match for some possible value 
+if let Some(x) = a_value // not valid. a_value may hold None rather than Some.
+
+irrefutable: pattern that will match for any possible value passed
+let x = 5; // x matches anything. cannot fail to match
+
+Function parameters, let statement, for loops only accept irrefutable patterns
