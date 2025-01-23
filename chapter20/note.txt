@@ -1,0 +1,14 @@
+20.1
+HTTP: text based protocol. A request takes this format:
+Method Request-URI HTTP-Version CRLF
+ - request line that holds info about what client is requesting
+ - indicates the method being used (GET or POST)
+headers CRLF
+ - request line: /  indicates Uniform Resource Identifier (URI)
+message-body
+ - HTTP version the client uses
+
+Writing a response
+HTTP-Version Status-Code Reason-Phase CRLF
+headers CRLF
+message-body
