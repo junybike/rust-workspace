@@ -45,3 +45,23 @@ Can overload operation and corresponding traits listed in std::ops by implementi
 Orphan rule: only allowed to implement a trait on a type if either trait or type are local to our crate
 - can get around with newtype pattern (new type in a tuple struct)
 - tuple contains one field and be a thin wrapper around the type we want to implement a trait for
+
+19.3
+Newtype pattern
+- statically enforcing that values are never confused and indicating the units of a values
+- can abstract away some implementation details of a type
+- can hide internal implementation
+
+Type aliases: to give an existing type another name
+
+Never type: !
+- empty type
+- never returns (diverging functions)
+- continue has a ! value
+- print!, loop, panic!
+
+Dynamically sized types (DST or unsized types)
+- size can be known only at runtime
+- str type
+
+To work with DST, Rust provides Sized trait to determine if type's size is known at compile time
