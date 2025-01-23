@@ -65,3 +65,49 @@ Dynamically sized types (DST or unsized types)
 - str type
 
 To work with DST, Rust provides Sized trait to determine if type's size is known at compile time
+
+19.4
+fn is a type rather than a trait
+function pointers implement these closure trait: Fn, FnMut, FnOnce
+- can always pass a function pointer as argument for function that expects a closure
+- best to write functions using generic type and a closure trait, so ur function can accept either functions or closures
+
+Returning closures
+Closures are represented by traits. Cannot return closures directly
+- use concrete type that implements the trait as return value of the function
+- closures dont have a concrete type that is returnable
+- not allowed to use function pointer fn as a return type
+
+19.5
+macro: refers to a family or features in Rust: declarative macros with macro rules! and 3 kinds of procedural macros
+
+procedural macros:
+Custom #[derive]: macros that specify code added with derive attribute used on structs and enums
+Attribute-like macros that define custom attributes usable on any item
+Function-like macros that look like function calls but operate on tokens specified as their arguments
+
+Function signature: must declare the number and type of parameters the function has.
+Macro: can take variable number of parameters (println!)
+
+Macro acts similar to match
+
+procedural macro accept some code as an input, operator on that code, produce some code as an output
+ - no matching the patterns and replacing code with other code 
+
+New crates: proc_macro, syn, quote
+- proc_macro: allow us to read and manipulate rust code from our code
+- syn: parses Rust code from string into a data structure that we can perform operations on
+- quote: turns syn data structure back into Rust code
+
+hello_macro_derive: 
+1. converts input from TokenStream to data structure so we can interpret and perform operations on. (syn)
+2. parse function in syn takes TokenStream and returns DeriveInput struct (parsed rust code)
+
+Attribute like macros: similar to custom derive macros
+- allow u to create new attributes
+
+Derive: only works for structs and enums.
+Attribute: can be applied to other items (functions)
+
+function like macros: define macros that look like function calls
+- more flexible than functions: can take unknown number of arguments
